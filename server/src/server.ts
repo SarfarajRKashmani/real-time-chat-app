@@ -12,7 +12,7 @@ const httpServer = createServer(app)
 const io = new Server(httpServer, {
   transports: ['websocket', 'polling'],
   cors: {
-    origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+    origin: process.env.CORS_ORIGIN,
     methods: ['GET', 'POST'],
   credentials: true,
 },
@@ -21,7 +21,7 @@ const io = new Server(httpServer, {
   pingTimeout: 20000,
    
 })
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT
 
 // Middleware
 app.use(cors())
